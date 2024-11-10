@@ -1,0 +1,83 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f9f9f9;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    cursor: pointer;
+    border: 2px solid #333;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transition for hover effect */
+}
+
+.cell:hover {
+    background-color: #d0d0d0; /* Darken background on hover */
+}
+
+.cell.red {
+    background-color: #ff6347; /* Tomato red */
+    animation: scaleUp 0.5s ease; /* Animation for cell placement */
+}
+
+.cell.green {
+    background-color: #32cd32; /* Lime green */
+    animation: scaleUp 0.5s ease; /* Animation for cell placement */
+}
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#reset {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+#status {
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+/* Winning line animation */
+.win-line {
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    background-color: yellow;
+    z-index: -1; /* Place it behind the grid */
+    transition: transform 0.5s ease;
+}
